@@ -98,6 +98,13 @@ foreach (string framework in new[] { "net10.0" })
         }
         byte[] sourceBytes = File.ReadAllBytes(Path.Combine(root, relative));
         Check(reader.GetBlobBytes(document.Hash).SequenceEqual(SHA256.HashData(sourceBytes)), "Source checksum mismatch: " + relative);
+        if (relative.Contains("/obj/", StringComparison.Ordinal))
+        {
+            var embeddedSourceKind = new Guid("0E8A571B-6926-466E-B4AD-8AB04611F5FE");
+            Check(reader.GetCustomDebugInformation(handle).Select(reader.GetCustomDebugInformation)
+                .Any(info => reader.GetGuid(info.Kind) == embeddedSourceKind), "Generated source is not embedded: " + relative);
+            continue;
+        }
         sourceUrls.Add(urlPattern.Replace("*", relative, StringComparison.Ordinal));
     }
 }
