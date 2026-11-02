@@ -32,6 +32,17 @@ $escapedCache = [Security.SecurityElement]::Escape((Join-Path $consumerRoot 'pac
   <config><add key="globalPackagesFolder" value="$escapedCache" /></config>
 </configuration>
 "@ | Set-Content -LiteralPath (Join-Path $consumerRoot 'NuGet.Config') -Encoding utf8
+if ($Source.TrimEnd('/') -eq 'https://api.nuget.org/v3/index.json') {
+    # NuGet deduplicates identical feed URLs; one mapping must cover the complete graph.
+    @"
+<configuration>
+  <packageSources><clear /><add key="public" value="$escapedFeed" /></packageSources>
+  <packageSourceMapping><packageSource key="public"><package pattern="*" /></packageSource></packageSourceMapping>
+  <fallbackPackageFolders><clear /></fallbackPackageFolders>
+  <config><add key="globalPackagesFolder" value="$escapedCache" /></config>
+</configuration>
+"@ | Set-Content -LiteralPath (Join-Path $consumerRoot 'NuGet.Config') -Encoding utf8
+}
 @'
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
