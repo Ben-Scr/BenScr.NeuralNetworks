@@ -1,0 +1,100 @@
+BenScr.NeuralNetworks.Activation : System.Enum
+  Field BenScr.NeuralNetworks.Activation Linear
+  Field BenScr.NeuralNetworks.Activation Relu
+  Field BenScr.NeuralNetworks.Activation Sigmoid
+  Field BenScr.NeuralNetworks.Activation Tanh
+  Field Int32 value__
+BenScr.NeuralNetworks.DenseNetwork : System.Object
+  Constructor Void .ctor(Int32, System.Collections.Generic.IReadOnlyList`1[BenScr.NeuralNetworks.LayerDefinition], Int32)
+  Field Int32 MaxJsonLength
+  Field Int32 MaxLayers
+  Field Int32 MaxParameters
+  Field Int32 MaxSamples
+  Field Int32 MaxWidth
+  Method BenScr.NeuralNetworks.DenseNetwork FromJson(System.String)
+  Method BenScr.NeuralNetworks.TrainingResult Train(System.Collections.Generic.IReadOnlyList`1[BenScr.NeuralNetworks.TrainingSample], BenScr.NeuralNetworks.TrainingOptions, System.Threading.CancellationToken)
+  Method Double EvaluateLoss(System.Collections.Generic.IReadOnlyList`1[BenScr.NeuralNetworks.TrainingSample], System.Threading.CancellationToken)
+  Method Double EvaluateLoss(System.ReadOnlySpan`1[System.Double], System.ReadOnlySpan`1[System.Double])
+  Method Double[] ComputeGradient(System.ReadOnlySpan`1[System.Double], System.ReadOnlySpan`1[System.Double])
+  Method Double[] GetParameters()
+  Method Double[] Predict(System.ReadOnlySpan`1[System.Double])
+  Method Int32 get_InputSize()
+  Method Int32 get_OutputSize()
+  Method Int32 get_ParameterCount()
+  Method System.Collections.Generic.IReadOnlyList`1[BenScr.NeuralNetworks.LayerDefinition] get_Layers()
+  Method System.String ToJson()
+  Method Void SetParameters(System.ReadOnlySpan`1[System.Double])
+  Property Int32 InputSize
+  Property Int32 OutputSize
+  Property Int32 ParameterCount
+  Property System.Collections.Generic.IReadOnlyList`1[BenScr.NeuralNetworks.LayerDefinition] Layers
+BenScr.NeuralNetworks.LayerDefinition : System.Object
+  Constructor Void .ctor(Int32, BenScr.NeuralNetworks.Activation)
+  Method BenScr.NeuralNetworks.Activation get_Activation()
+  Method BenScr.NeuralNetworks.LayerDefinition <Clone>$()
+  Method Boolean Equals(BenScr.NeuralNetworks.LayerDefinition)
+  Method Boolean Equals(System.Object)
+  Method Boolean op_Equality(BenScr.NeuralNetworks.LayerDefinition, BenScr.NeuralNetworks.LayerDefinition)
+  Method Boolean op_Inequality(BenScr.NeuralNetworks.LayerDefinition, BenScr.NeuralNetworks.LayerDefinition)
+  Method Int32 GetHashCode()
+  Method Int32 get_Units()
+  Method System.String ToString()
+  Method Void Deconstruct(Int32 ByRef, BenScr.NeuralNetworks.Activation ByRef)
+  Method Void set_Activation(BenScr.NeuralNetworks.Activation)
+  Method Void set_Units(Int32)
+  Property BenScr.NeuralNetworks.Activation Activation
+  Property Int32 Units
+BenScr.NeuralNetworks.TrainingOptions : System.Object
+  Constructor Void .ctor()
+  Method BenScr.NeuralNetworks.TrainingOptions <Clone>$()
+  Method Boolean Equals(BenScr.NeuralNetworks.TrainingOptions)
+  Method Boolean Equals(System.Object)
+  Method Boolean get_Shuffle()
+  Method Boolean op_Equality(BenScr.NeuralNetworks.TrainingOptions, BenScr.NeuralNetworks.TrainingOptions)
+  Method Boolean op_Inequality(BenScr.NeuralNetworks.TrainingOptions, BenScr.NeuralNetworks.TrainingOptions)
+  Method Double get_LearningRate()
+  Method Int32 GetHashCode()
+  Method Int32 get_BatchSize()
+  Method Int32 get_Epochs()
+  Method Int32 get_Seed()
+  Method System.Nullable`1[System.Double] get_TargetLoss()
+  Method System.String ToString()
+  Method Void set_BatchSize(Int32)
+  Method Void set_Epochs(Int32)
+  Method Void set_LearningRate(Double)
+  Method Void set_Seed(Int32)
+  Method Void set_Shuffle(Boolean)
+  Method Void set_TargetLoss(System.Nullable`1[System.Double])
+  Property Boolean Shuffle
+  Property Double LearningRate
+  Property Int32 BatchSize
+  Property Int32 Epochs
+  Property Int32 Seed
+  Property System.Nullable`1[System.Double] TargetLoss
+BenScr.NeuralNetworks.TrainingResult : System.Object
+  Constructor Void .ctor(Int32, Double, Double)
+  Method BenScr.NeuralNetworks.TrainingResult <Clone>$()
+  Method Boolean Equals(BenScr.NeuralNetworks.TrainingResult)
+  Method Boolean Equals(System.Object)
+  Method Boolean op_Equality(BenScr.NeuralNetworks.TrainingResult, BenScr.NeuralNetworks.TrainingResult)
+  Method Boolean op_Inequality(BenScr.NeuralNetworks.TrainingResult, BenScr.NeuralNetworks.TrainingResult)
+  Method Double get_FinalLoss()
+  Method Double get_InitialLoss()
+  Method Int32 GetHashCode()
+  Method Int32 get_EpochsCompleted()
+  Method System.String ToString()
+  Method Void Deconstruct(Int32 ByRef, Double ByRef, Double ByRef)
+  Method Void set_EpochsCompleted(Int32)
+  Method Void set_FinalLoss(Double)
+  Method Void set_InitialLoss(Double)
+  Property Double FinalLoss
+  Property Double InitialLoss
+  Property Int32 EpochsCompleted
+BenScr.NeuralNetworks.TrainingSample : System.Object
+  Constructor Void .ctor(System.ReadOnlySpan`1[System.Double], System.ReadOnlySpan`1[System.Double])
+  Method Double[] GetInput()
+  Method Double[] GetTarget()
+  Method Int32 get_InputSize()
+  Method Int32 get_OutputSize()
+  Property Int32 InputSize
+  Property Int32 OutputSize

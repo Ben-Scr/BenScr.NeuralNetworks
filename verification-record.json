@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "package_id": "BenScr.NeuralNetworks",
+  "version": "1.0.0",
+  "implementation": "new CPU dense-network library",
+  "runtime_frameworks": ["net10.0"],
+  "runtime_dependencies": [],
+  "initial_local_validation": {
+    "platform": "Windows x64",
+    "tests_passed": 59,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "example_passed": true
+  },
+  "ci_configured_platforms": ["windows-latest", "ubuntu-latest"],
+  "api_baseline": "docs/PublicApi.txt",
+  "license": "LICENSE.txt",
+  "icon_sha256": "a5dcabceb766e13c1840a95130ee98a458e12e3713fd9b07f3ceae75a1f5b993",
+  "final_artifact_evidence": "artifacts/latest-verification.txt -> release-manifest.json",
+  "public_feed_verification": "recorded in final release manifest after publication"
+}

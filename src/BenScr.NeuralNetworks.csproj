@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>BenScr.NeuralNetworks</PackageId>
+    <AssemblyName>BenScr.NeuralNetworks</AssemblyName>
+    <RootNamespace>BenScr.NeuralNetworks</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Ben Schneider</Authors>
+    <Description>CPU dense neural networks with deterministic initialization, mini-batch gradient descent, analytic gradients and validated JSON model persistence.</Description>
+    <PackageTags>neural-networks;machine-learning;regression;training</PackageTags>
+    <PackageProjectUrl>https://github.com/Ben-Scr/BenScr.NeuralNetworks</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Ben-Scr/BenScr.NeuralNetworks</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+    <None Include="../LICENSE.txt" Pack="true" PackagePath="/" />
+    <None Include="../branding/BenScr_Icon_Master.png" Pack="true" PackagePath="/icon.png" />
+  </ItemGroup>
+</Project>
